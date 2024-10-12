@@ -6,8 +6,7 @@ Official PyTorch implementation of [**Semantic Image Inversion and Editing using
 <!-- **[Code will be released soon...]**   -->
 
 
-Given reference images of preferred style or content, our method, **RB-Modulation**, offers a plug-and-play solution for (a) stylization with various prompts, and (b)
-composition with reference content images while maintaining sample diversity and prompt alignment.
+Rectified flows for image inversion and editing. Our approach efficiently inverts reference style images in (a) and (b) without requiring text descriptions of the images and applies desired edits based on new prompts (e.g. “a girl” or “a dwarf”). For a reference content image (e.g. a cat in (c) or a face in (d)), it performs semantic image editing  e.g. “ sleeping cat”) and stylization (e.g. “a photo of a cat in origmai style”) based on prompts, without leaking unwanted content from the reference image (input images have orange borders).
 
 ![teaser](./data/main.png)
 
