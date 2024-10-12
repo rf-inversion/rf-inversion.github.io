@@ -1,0 +1,126 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>RF-Inversion</title>
+<link href="./style.css" rel="stylesheet">
+<!-- <script type="text/javascript" src="./DreamBooth_files/jquery.js"></script> -->
+</head>
+
+<body>
+<div class="content">
+  <h1><strong>Semantic Image Inversion and Editing using <br> Stochastic Rectified Differential Equations</strong></h1>
+  <!-- <h2 style="text-align:center;">CVPR 2024</h2> -->
+  <p id="authors"><a href="https://liturout.github.io/" style="color:blue;">Litu Rout<sup>1,2</sup></a> <a href="https://issaccyj.github.io/"  style="color:blue;">Yujia Chen<sup>2</sup></a> <a href="https://natanielruiz.github.io/"  style="color:blue;">Nataniel Ruiz<sup>2</sup></a> <br></a><a href="https://caramanis.github.io/"  style="color:blue;">Constantine Caramanis<sup>1</sup></a> <a href="https://sites.google.com/view/sanjay-shakkottai/home"  style="color:blue;">Sanjay Shakkottai<sup>1</sup><a href="https://l2ior.github.io/"  style="color:blue;">Wen-Sheng Chu<sup>2</sup></a><br>
+
+    <span style="font-size: 20px"><br>
+        <b><sup>1</sup> The University of Texas at Austin,  &nbsp&nbsp  <sup>2</sup> Google  <br> </b>
+        </p>
+    <font size="+2">
+          <p style="text-align: center;">
+            <a href="./data/rf-inversion.pdf" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" target="_blank">[arXiv]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://github.com/LituRout/RF-Inversion" target="_blank">[Code (Coming Soon)]</a> 
+          </p>
+    </font>
+  <img src="./data/main.png" class="teaser-gif" style="width:90%;">    
+    <p>Rectified flows for image inversion and editing. Our approach efficiently inverts reference style images in (a) and (b) without requiring text descriptions of the images and applies desired edits based on new prompts (e.g. “a girl” or “a dwarf”). For a reference content image (e.g. a cat in (c) or a face in (d)), it performs semantic image editing  e.g. “ sleeping cat”) and stylization (e.g. “a photo of a cat in origmai style”) based on prompts, without leaking unwanted content from the reference image (input images have orange borders).</p>
+</div>
+
+
+<div class="content">
+  <h2 style="text-align:center;">Abstract</h2>
+  <p>Generative models transform random noise into images; their inversion aims to transform images back to structured noise for recovery and editing. This paper addresses two key tasks: (i) <em>inversion</em> and (ii) <em>editing</em> of a real image using stochastic equivalents of rectified flow models (such as Flux). Although Diffusion Models (DMs) have recently dominated the field of generative modeling for images, their inversion presents faithfulness and editability challenges due to nonlinearities in drift and diffusion. Existing state-of-the-art DM inversion approaches rely on training of additional parameters or test-time optimization of latent variables; both are expensive in practice. Rectified Flows (RFs) offer a promising alternative to diffusion models, yet their inversion has been underexplored. We propose RF inversion using dynamic optimal control derived via a linear quadratic regulator. We prove that the resulting vector field is equivalent to a rectified stochastic differential equation. Additionally, we extend our framework to design a stochastic sampler for Flux. Our inversion method allows for state-of-the-art performance in zero-shot inversion and editing, outperforming prior works in stroke-to-image synthesis and semantic image editing, with large-scale human evaluations confirming user preference.</p>
+</div>
+
+
+<div class="content">
+    <h2>Contributions</h2>
+    <ul>
+      <li>We present an efficient inversion method for RF models, including Flux, that requires no additional training, latent optimization, prompt tuning, or complex attention processors.</li>
+      <p></p>
+      <li>We develop a new vector field for RF inversion, interpolating between two competing objectives: consistency with a possibly corrupted input image, and consistency with the “true” distribution of clean images (§3.3). We prove that this vector field is equivalent to a rectified SDE that interpolates between the stochastic equivalents of these competing objectives (§3.4). We extend the theoretical results to design a stochastic sampler for Flux.
+      </li>
+      <p></p>
+      <li>We demonstrate the faithfulness and editability of RF inversion across three benchmarks: (i) LSUN-Bedroom, (ii) LSUN-Church, and (iii) SFHQ, on two tasks: stroke-to-image synthesis and image editing. In addition, we provide extensive qualitative results and conduct large-scale human evaluations to assess user preference metrics (§5).</li>
+    </ul>        
+    </div>
+
+<div class="content">        
+    <h2>Graphical Model</h2>
+    <p>Graphical model illustrating (a) DDIM inversion and (b) RF inversion. Due to nonlinearities in DM trajectory, the DDIM inverted latent <b style="color:red;">x<sub>1</sub></b> significantly deviates from the original image <b style="color:orange;">y<sub>0</sub></b>. RF inversion without controller reduces this deviation, resulting in <b style="color:purple;">x<sub>1</sub></b>. With controller, RF inversion further eliminates the reconstruction error, making <b style="color:darkcyan;">x<sub>1</sub></b> nearly identical to <b style="color:orange;">y<sub>0</sub></b>, which enhances the faithfulness.</p>
+    <img class="summary-img" src="./data/graph.png" style="width:60%;"> <br>
+  </div>
+
+<div class="content">
+  <h2>Stylization Results</h2>
+  <p><b>Stylization using a single reference image and various text prompts.</b> Given a reference style image (e.g. “melting golden 3d rendering” at the top) and various text prompts (e.g. “a dwarf in melting golden 3d rendering style”), our method generates images that are consistent with the reference style image and aligned with the given text prompt.</p>
+  <br>
+  <img class="summary-img" src="./data/stylization.png" style="width:80%;"> 
+  <br>  
+  <p><b>Stylization using a single prompt and various reference style images: “melting golden”, “line drawing”, “3d rendering”, and “wooden sculpture”.</b> Given a style image (e.g. “3d rendering”) and a text prompt (e.g. “face of a boy in 3d rendering style”), our method generates images that are consistent with the reference style image and the text prompt. The standard output from Flux is obtained by disabling our controller, which clearly highlights the importance of the controller.</p>
+  <br>
+  <img class="summary-img" src="./data/stylization-many.png" style="width:80%;"> 
+  <br>  
+</div>
+
+
+<div id="results" class="content">
+  <h2>Cartoonization Results</h2>      
+  <img class="summary-img" src="./data/cartoonization.png" style="width:80%;">
+  <h3 style="text-align:center">Cartoonization of a reference image given prompt-based facial expressions in “disney 3d cartoon style”.</h3>    
+</div>
+
+<div id="results2" class="content">
+  <h2> Stroke-to-Image Generation Results</h2>
+  <p></p>
+    <img class="summary-img" src="./data/stroke2image-bedroom.png" style="width:100%;">
+  <h3 style="text-align:center">LSUN-Bedroom dataset comparing our method with SoTA training-free and training-based editing approaches.</h3>
+  <p></p>
+    <img class="summary-img" src="./data/stroke2image-church.png" style="width:100%;">
+  <h3 style="text-align:center"> LSUN-Church dataset comparing our method with SoTA training-free and training-based editing approaches.</h3>
+</div>
+
+<div id="results2" class="content">
+  <h2> Semantic Image Editing Results</h2>
+  <p></p>
+    <img class="summary-img" src="./data/glasses.png" style="width:90%;">
+  <h3 style="text-align:center">Adding glasses using prompt “wearing glasses”.</h3>
+  <p></p>
+    <img class="summary-img" src="./data/gender.png" style="width:90%;">
+  <h3 style="text-align:center">Gender editing: our method smoothly interpolates between “A man” ↔ “A woman”.</h3>
+  <p></p>
+    <img class="summary-img" src="./data/age.png" style="width:90%;">
+  <h3 style="text-align:center">Age editing: our method regulates the extent of age editing.</h3>
+  <p></p>
+    <img class="summary-img" src="./data/object-insert.png" style="width:90%;">
+  <h3 style="text-align:center">Object insert: text-guided insertion of multiple objects sequentially.</h3>
+</div>
+
+
+<div class="content">
+  <h2>Text-to-Image Generation</h2>
+  <p>T2I generation using rectified SDE (22) for different number of discretization steps marked along the X-axis. Our stochastic equivalent sampler FluxSDE generates samples visually comparable to FluxODE at different levels of discretization.</p>
+  <br>
+  <img class="summary-img" src="./data/t2i-gen.png" style="width:80%;"> <br>  
+</div>
+
+
+<div class="content">
+  <h2>BibTex</h2>
+  <code> @article{rout2024rfinversion,<br>
+  &nbsp;&nbsp;title={Semantic Image Inversion and Editing using Stochastic Rectified Differential Equations},<br>
+  &nbsp;&nbsp;author={Rout, L and Chen, Y and Ruiz, N and Caramanis, C and Shakkottai, S and Chu, W},<br>
+  &nbsp;&nbsp;booktitle={arXiv preprint arxiv:2405.17401},<br>
+  &nbsp;&nbsp;year={2024}<br>
+  } </code> 
+</div>
+
+<div class="content" id="acknowledgements">
+  <p><strong>Acknowledgements</strong>:
+    This research has been supported by NSF Grant 2019844, a Google research collaboration award, and the UT Austin Machine Learning Lab.
+  </p>
+</div>
+</body>
+
+
+</html>
