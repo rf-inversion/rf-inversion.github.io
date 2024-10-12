@@ -1,6 +1,6 @@
 # Semantic Image Inversion and Editing using Stochastic Rectified Differential Equations
 
-Official PyTorch implementation of [**Semantic Image Inversion and Editing using Stochastic Rectified Differential Equations**](https://arxiv.org/pdf/2405.17401).
+PyTorch implementation of [**Semantic Image Inversion and Editing using Stochastic Rectified Differential Equations**](https://arxiv.org/pdf/2405.17401).
 
 
 <!-- **[Code will be released soon...]**   -->
