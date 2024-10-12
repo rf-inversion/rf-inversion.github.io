@@ -1,16 +1,15 @@
-# RB-Modulation: Training-Free Personalization of Diffusion Models using Stochastic Optimal Control
+# Semantic Image Inversion and Editing using Stochastic Rectified Differential Equations
 
-Official PyTorch implementation of [**RB-Modulation: Training-Free Personalization of Diffusion Models using Stochastic Optimal Control**](https://arxiv.org/pdf/2405.17401).
+Official PyTorch implementation of [**Semantic Image Inversion and Editing using Stochastic Rectified Differential Equations**](https://arxiv.org/pdf/2405.17401).
 
 
-**[Code will be released soon...]**  
+<!-- **[Code will be released soon...]**   -->
 
-<!-- [![Star on GitHub](https://img.shields.io/github/stars/LituRout/RB-Modulation.svg?style=social)](https://github.com/LituRout/RB-Modulation/stargazers) -->
 
 Given reference images of preferred style or content, our method, **RB-Modulation**, offers a plug-and-play solution for (a) stylization with various prompts, and (b)
 composition with reference content images while maintaining sample diversity and prompt alignment.
 
-![teaser](./data/web1.png)
+![teaser](./data/main.png)
 
 
 ## 🔥 Updates
@@ -20,9 +19,9 @@ composition with reference content images while maintaining sample diversity and
 ## Citation
 
 ```
-@article{rout2024rbmodulation,
-  title={RB-Modulation: Training-Free Personalization of Diffusion Models using Stochastic Optimal Control},
-  author={Litu Rout and Yujia Chen and Nataniel Ruiz and Abhishek Kumar and Constantine Caramanis and Sanjay Shakkottai and Wen-Sheng Chu},
+@article{rout2024rfinversion,
+  title={Semantic Image Inversion and Editing using Stochastic Rectified Differential Equations},
+  author={Litu Rout and Yujia Chen and Nataniel Ruiz and Constantine Caramanis and Sanjay Shakkottai and Wen-Sheng Chu},
   journal={arXiv preprint arXiv:2405.17401},
   year={2024}
 }
