@@ -6,9 +6,6 @@
 </div>
 
 
-<!-- PyTorch code of [**Semantic Image Inversion and Editing using Rectified Stochastic Differential Equations**](https://arxiv.org/pdf/2410.10792). -->
-
-
 <!-- **[Code will be released here...]**   -->
 
 
