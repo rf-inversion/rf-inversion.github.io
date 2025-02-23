@@ -106,22 +106,33 @@
   <h2>Text-to-Image Generation</h2>
   <p>T2I generation using rectified SDE (22) for different number of discretization steps marked along the X-axis. Our stochastic equivalent sampler FluxSDE generates samples visually comparable to FluxODE at different levels of discretization.</p>
   <br>
-  <img class="summary-img" src="./data/t2i-gen.png" style="width:80%;"> <br>  
+  <img class="summary-img" src="./data/t2i-gen.png" style="width:90%;"> <br>  
   <p>Additional qualitative results on T2I generation for 100 steps of discretization. This verifies the correctness of the optimal vector field derived in §3 of the main paper and in Appendix A. FluxSDE has the same marginals as the deterministic sampler Flux, but follows a stochastic path as discussed in §3.</p>
   <br>
-  <img class="summary-img" src="./data/t2i-gen-2.png" style="width:80%;"> <br>  
+  <img class="summary-img" src="./data/t2i-gen-2.png" style="width:90%;"> <br>  
+</div>
+
+<div class="content">
+  <h2>Content-Style Composition with RF-Inversion+LoRA</h2>
+  <br>
+  <img class="summary-img" src="./data/rf-inversion-content-style.png" style="width:90%;"> <br>  
+  <p>
+    Compatibility of our method with LoRA for content-style composition. The generated image preserves the identity of the reference content while adhering to the desired style.
+  </p>  
 </div>
 
 
 <div class="content">
   <h2>BibTex</h2>
-  <code> @article{rout2024rfinversion,<br>
+  <code>  @inproceedings{rout2025semantic,<br>
   &nbsp;&nbsp;title={Semantic Image Inversion and Editing using Rectified Stochastic Differential Equations},<br>
   &nbsp;&nbsp;author={Rout, L and Chen, Y and Ruiz, N and Caramanis, C and Shakkottai, S and Chu, W},<br>
-  &nbsp;&nbsp;booktitle={arXiv preprint arxiv:2410.10792},<br>
-  &nbsp;&nbsp;year={2024}<br>
+  &nbsp;&nbsp;booktitle={The Thirteenth International Conference on Learning Representations},<br>
+  &nbsp;&nbsp;year={2025}<br>
+  &nbsp;&nbsp;url={https://openreview.net/forum?id=Hu0FSOSEyS}<br>
   } </code> 
 </div>
+
 
 <div class="content" id="acknowledgements">
   <p><strong>Acknowledgements</strong>:
